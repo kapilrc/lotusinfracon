@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Phone, MapPin, UserRound } from "lucide-react"
-import { CONTACT, SITE } from "@/lib/constants"
+import { CONTACT, SITE, COMPANY } from "@/lib/constants"
 import { Logo } from "@/components/logo"
 
 export function Footer() {
@@ -15,36 +15,45 @@ export function Footer() {
             <p className="text-muted-foreground text-sm leading-relaxed">
               {SITE.description}
             </p>
+            <p className="text-muted-foreground text-xs">
+              GST: {COMPANY.gst}
+            </p>
           </div>
 
           <div className="flex flex-col gap-4">
             <h3 className="text-foreground font-semibold text-sm tracking-wide uppercase">
-              Equipment
+              Products
             </h3>
             <nav className="flex flex-col gap-2">
               <Link
                 href="/products?category=concrete-pumps"
                 className="text-muted-foreground text-sm hover:text-primary transition-colors"
               >
-                Concrete Pumps
+                Concrete Pump
               </Link>
               <Link
                 href="/products?category=construction-equipment"
                 className="text-muted-foreground text-sm hover:text-primary transition-colors"
               >
-                Construction Equipment
+                Construction Equipment Rental
               </Link>
               <Link
-                href="/products?category=scaffolding"
+                href="/products?category=scaffolding-equipment"
                 className="text-muted-foreground text-sm hover:text-primary transition-colors"
               >
-                Scaffolding Systems
+                Scaffolding Equipment
+              </Link>
+              <Link
+                href="/products?category=scaffolding-rental"
+                className="text-muted-foreground text-sm hover:text-primary transition-colors"
+              >
+                Scaffolding Rental Service
               </Link>
               <Link
                 href="/products?category=pipes"
                 className="text-muted-foreground text-sm hover:text-primary transition-colors"
               >
-                Pipes Rental
+                Pipes Rental Services
               </Link>
             </nav>
           </div>

@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
+import { SectionLabel } from "@/components/section-label"
 
 export function HeroSection() {
   return (
@@ -19,22 +20,16 @@ export function HeroSection() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 pt-32 pb-20 w-full">
         <div className="max-w-3xl flex flex-col gap-8">
-          <div className="flex items-center gap-3">
-            <div className="h-px w-12 bg-primary" />
-            <span className="text-primary text-sm font-semibold tracking-widest uppercase">
-              Since 2005
-            </span>
-          </div>
+          <SectionLabel>Since 2006</SectionLabel>
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight text-balance">
-            Powering India&apos;s Infrastructure with{" "}
-            <span className="text-primary">Precision</span> Rental Solutions
+            Construction Equipment{" "}
+            <span className="text-primary">Rental</span> &amp; Scaffolding Solutions
           </h1>
 
           <p className="text-muted-foreground text-lg md:text-xl leading-relaxed max-w-2xl">
-            Premium concrete pumps, boom pumps, scaffolding systems, and
-            industrial pipe rentals trusted by Tier-1 contractors across the
-            nation.
+            Leading provider of concrete pumps, boom pumps, scaffolding systems,
+            and construction equipment rental services across India since 2006.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
@@ -57,19 +52,19 @@ export function HeroSection() {
             <div className="flex flex-col">
               <span className="text-3xl md:text-4xl font-bold text-primary">500+</span>
               <span className="text-muted-foreground text-xs mt-1 uppercase tracking-wide">
-                Projects Delivered
+                Customers Served
               </span>
             </div>
             <div className="flex flex-col">
-              <span className="text-3xl md:text-4xl font-bold text-primary">20+</span>
+              <span className="text-3xl md:text-4xl font-bold text-primary">19+</span>
               <span className="text-muted-foreground text-xs mt-1 uppercase tracking-wide">
                 Years Experience
               </span>
             </div>
             <div className="flex flex-col">
-              <span className="text-3xl md:text-4xl font-bold text-primary">50+</span>
+              <span className="text-3xl md:text-4xl font-bold text-primary">40+</span>
               <span className="text-muted-foreground text-xs mt-1 uppercase tracking-wide">
-                Equipment Fleet
+                Products
               </span>
             </div>
           </div>

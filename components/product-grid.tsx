@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { useSearchParams } from "next/navigation"
@@ -8,32 +8,12 @@ import { ArrowRight, Search } from "lucide-react"
 import { products, categories, type Product } from "@/lib/products"
 import { cn } from "@/lib/utils"
 
-function StatusBadge({ status, label }: { status: Product["status"]; label: string }) {
-  return (
-    <span
-      className={cn(
-        "inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-sm",
-        status === "available" && "bg-green-500/10 text-green-400",
-        status === "on-hire" && "bg-primary/10 text-primary",
-        status === "maintenance" && "bg-muted text-muted-foreground"
-      )}
-    >
-      <span
-        className={cn(
-          "w-1.5 h-1.5 rounded-full",
-          status === "available" && "bg-green-400",
-          status === "on-hire" && "bg-primary",
-          status === "maintenance" && "bg-muted-foreground"
-        )}
-      />
-      {label}
-    </span>
-  )
-}
-
 function ProductCard({ product }: { product: Product }) {
   return (
-    <div className="group flex flex-col overflow-hidden rounded-sm border border-border bg-card hover:border-primary/50 transition-all">
+    <Link
+      href={`/products/${product.slug}`}
+      className="group flex flex-col overflow-hidden rounded-sm border border-border bg-card hover:border-primary/50 transition-all"
+    >
       <div className="relative h-48 overflow-hidden">
         <Image
           src={product.image}
@@ -42,21 +22,25 @@ function ProductCard({ product }: { product: Product }) {
           className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
         <div className="absolute inset-0 bg-background/10" />
-        <div className="absolute top-3 left-3">
-          <StatusBadge status={product.status} label={product.statusLabel} />
-        </div>
         <div className="absolute top-3 right-3">
           <span className="text-xs font-medium bg-secondary text-secondary-foreground px-2 py-1 rounded-sm">
             {product.categoryLabel}
           </span>
         </div>
+        {product.price && (
+          <div className="absolute top-3 left-3">
+            <span className="text-xs font-semibold bg-primary text-primary-foreground px-2.5 py-1 rounded-sm">
+              {product.price}
+            </span>
+          </div>
+        )}
       </div>
 
       <div className="flex flex-col gap-3 p-5 flex-1">
-        <h3 className="text-foreground font-bold text-lg">{product.name}</h3>
+        <h3 className="text-foreground font-bold text-lg group-hover:text-primary transition-colors">{product.name}</h3>
 
         <div className="grid grid-cols-3 gap-3">
-          {product.specs.map((spec) => (
+          {product.specs.slice(0, 3).map((spec) => (
             <div key={spec.label} className="flex flex-col gap-0.5">
               <span className="text-muted-foreground text-xs uppercase tracking-wide">
                 {spec.label}
@@ -72,27 +56,24 @@ function ProductCard({ product }: { product: Product }) {
           {product.description}
         </p>
 
-        <div className="flex items-center gap-3 mt-2">
-          <Link
-            href="/contact"
-            className="flex-1 inline-flex items-center justify-center bg-primary text-primary-foreground py-2.5 rounded-sm text-sm font-semibold hover:opacity-90 transition-opacity"
-          >
-            Get Quote
-          </Link>
-          <button className="inline-flex items-center justify-center border border-border text-foreground py-2.5 px-4 rounded-sm text-sm font-semibold hover:bg-secondary transition-colors">
-            View Specs
-          </button>
+        <div className="flex items-center gap-1 text-primary text-sm font-medium mt-2">
+          <span>View Details</span>
+          <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
 
 export function ProductGrid() {
   const searchParams = useSearchParams()
-  const initialCategory = searchParams.get("category") || "all"
-  const [activeCategory, setActiveCategory] = useState(initialCategory)
+  const categoryParam = searchParams.get("category") || "all"
+  const [activeCategory, setActiveCategory] = useState(categoryParam)
   const [searchQuery, setSearchQuery] = useState("")
+
+  useEffect(() => {
+    setActiveCategory(categoryParam)
+  }, [categoryParam])
 
   const filteredProducts = products.filter((product) => {
     const matchesCategory =

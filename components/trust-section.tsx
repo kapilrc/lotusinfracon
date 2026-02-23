@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { Shield, Clock, Wrench, Award } from "lucide-react"
+import { SectionHeader } from "@/components/section-label"
 
 const projects = [
   {
@@ -42,19 +43,11 @@ export function TrustSection() {
     <section className="py-24 bg-secondary">
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-col gap-4 mb-16">
-          <div className="flex items-center gap-3">
-            <div className="h-px w-12 bg-primary" />
-            <span className="text-primary text-sm font-semibold tracking-widest uppercase">
-              Trust & Track Record
-            </span>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground text-balance">
-            Major Projects Supported
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl">
-            Our equipment has powered some of India&apos;s most ambitious
-            infrastructure projects.
-          </p>
+          <SectionHeader
+            label="Trust & Track Record"
+            title="Major Projects Supported"
+            description="Our equipment has powered some of India's most ambitious infrastructure projects."
+          />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">

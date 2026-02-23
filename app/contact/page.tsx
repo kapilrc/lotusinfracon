@@ -5,6 +5,7 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle2 } from "lucide-react"
 import { CONTACT } from "@/lib/constants"
+import { SectionHeader } from "@/components/section-label"
 
 const contactInfo = [
   {
@@ -37,8 +38,31 @@ const contactInfo = [
   },
 ]
 
+const inquiryOptions = [
+  {
+    id: "quotation",
+    label: "Get Quotation",
+    message:
+      "Could you please send me a quotation for the items listed below?",
+  },
+  {
+    id: "price-list",
+    label: "Get Price List",
+    message:
+      "Can you provide me with the latest price list for your products?",
+  },
+  {
+    id: "discuss",
+    label: "Discuss Requirement",
+    message:
+      "I would like to discuss my requirements in detail. Can we set up a time to talk?",
+  },
+] as const
+
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false)
+  const [selectedPurpose, setSelectedPurpose] = useState<string>("")
+  const [message, setMessage] = useState("")
 
   return (
     <main>
@@ -47,19 +71,12 @@ export default function ContactPage() {
       <section className="pt-28 pb-24 bg-background">
         <div className="mx-auto max-w-7xl px-6">
           <div className="flex flex-col gap-4 mb-16">
-            <div className="flex items-center gap-3">
-              <div className="h-px w-12 bg-primary" />
-              <span className="text-primary text-sm font-semibold tracking-widest uppercase">
-                Get In Touch
-              </span>
-            </div>
-            <h1 className="text-3xl md:text-5xl font-bold text-foreground text-balance">
-              Let&apos;s Power Your Next Project
-            </h1>
-            <p className="text-muted-foreground text-lg max-w-2xl">
-              Tell us about your equipment needs and our team will prepare a
-              custom rental solution within 2 hours.
-            </p>
+            <SectionHeader
+              as="h1"
+              label="Get In Touch"
+              title="Let's Power Your Next Project"
+              description="Tell us about your equipment needs and our team will prepare a custom rental solution within 2 hours."
+            />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
@@ -94,12 +111,12 @@ export default function ContactPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="flex flex-col gap-2">
                       <label className="text-foreground text-sm font-medium">
-                        Full Name <span className="text-primary">*</span>
+                        Name <span className="text-primary">*</span>
                       </label>
                       <input
                         type="text"
                         required
-                        placeholder="Your full name"
+                        placeholder="Your name"
                         className="bg-input border border-border rounded-sm px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary"
                       />
                     </div>
@@ -141,25 +158,31 @@ export default function ContactPage() {
 
                   <div className="flex flex-col gap-2">
                     <label className="text-foreground text-sm font-medium">
-                      Equipment Required <span className="text-primary">*</span>
+                      Inquiry Purpose <span className="text-primary">*</span>
                     </label>
-                    <select
-                      required
-                      defaultValue=""
-                      className="bg-input border border-border rounded-sm px-4 py-3 text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-primary"
-                    >
-                      <option value="" disabled>
-                        Select equipment type
-                      </option>
-                      <option value="concrete-pump">Concrete Pump</option>
-                      <option value="boom-pump">Boom Pump</option>
-                      <option value="scaffolding">Scaffolding System</option>
-                      <option value="pipes">Pipes</option>
-                      <option value="multiple">Multiple Equipment</option>
-                    </select>
+                    <div className="flex flex-wrap gap-2">
+                      {inquiryOptions.map((option) => (
+                        <button
+                          key={option.id}
+                          type="button"
+                          onClick={() => {
+                            setSelectedPurpose(option.id)
+                            setMessage(option.message)
+                          }}
+                          className={`px-4 py-2 rounded-sm text-sm font-medium border transition-all ${
+                            selectedPurpose === option.id
+                              ? "bg-primary text-primary-foreground border-primary"
+                              : "bg-input text-foreground border-border hover:border-primary/50 hover:text-primary"
+                          }`}
+                        >
+                          {option.label}
+                        </button>
+                      ))}
+                    </div>
+                    <input type="hidden" name="purpose" value={selectedPurpose} required />
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="flex flex-col gap-2">
                       <label className="text-foreground text-sm font-medium">
                         Project Location
@@ -188,7 +211,7 @@ export default function ContactPage() {
                         <option value="1-year">1 Year+</option>
                       </select>
                     </div>
-                  </div>
+                  </div> */}
 
                   <div className="flex flex-col gap-2">
                     <label className="text-foreground text-sm font-medium">
@@ -196,6 +219,8 @@ export default function ContactPage() {
                     </label>
                     <textarea
                       rows={4}
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
                       placeholder="Describe your project requirements, site conditions, and any special needs..."
                       className="bg-input border border-border rounded-sm px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary resize-none"
                     />

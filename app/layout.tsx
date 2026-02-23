@@ -4,17 +4,23 @@ import { ThemeProvider } from '@/components/theme-provider'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Lotus Infracon | Premium Construction Equipment Rental',
+  title: 'Lotus Infracon | Construction Equipment Rental & Scaffolding Solutions',
   description:
-    'Powering India\'s Infrastructure with Precision Rental Solutions. Concrete pumps, boom pumps, scaffolding systems, and pipe rentals for Tier-1 contractors.',
+    'Leading provider of concrete pumps, boom pumps, scaffolding systems, and construction equipment rental services across India. Established in 2006 in Pune, Maharashtra.',
   keywords: [
     'construction equipment rental',
     'concrete pump rental',
-    'boom pump',
+    'boom pump rental',
     'scaffolding rental',
-    'Putzmeister',
-    'India infrastructure',
+    'scaffolding equipment',
+    'Putzmeister concrete pump',
+    'concrete placing boom',
+    'cuplock scaffolding',
+    'H frame scaffolding',
+    'MS pipes rental',
     'Lotus Infracon',
+    'construction equipment Pune',
+    'boom placer rental India',
   ],
 }
 

@@ -81,9 +81,10 @@ export function StickyInquiryBar() {
                   Equipment Type
                 </option>
                 <option value="concrete-pump">Concrete Pump</option>
-                <option value="boom-pump">Boom Pump</option>
-                <option value="scaffolding">Scaffolding</option>
-                <option value="pipes">Pipes</option>
+                <option value="boom-pump">Construction Equipment Rental</option>
+                <option value="scaffolding-equipment">Scaffolding Equipment</option>
+                <option value="scaffolding-rental">Scaffolding Rental</option>
+                <option value="pipes">Pipes Rental</option>
                 <option value="other">Other</option>
               </select>
               <textarea
