@@ -34,7 +34,7 @@ function StatusBadge({ status, label }: { status: Product["status"]; label: stri
 function ProductCard({ product }: { product: Product }) {
   return (
     <div className="group flex flex-col overflow-hidden rounded-sm border border-border bg-card hover:border-primary/50 transition-all">
-      <div className="relative h-48 overflow-hidden">
+      <Link href={`/products/${product.slug}`} className="relative h-48 overflow-hidden block">
         <Image
           src={product.image}
           alt={product.name}
@@ -50,10 +50,14 @@ function ProductCard({ product }: { product: Product }) {
             {product.categoryLabel}
           </span>
         </div>
-      </div>
+      </Link>
 
       <div className="flex flex-col gap-3 p-5 flex-1">
-        <h3 className="text-foreground font-bold text-lg">{product.name}</h3>
+        <Link href={`/products/${product.slug}`}>
+          <h3 className="text-foreground font-bold text-lg hover:text-primary transition-colors">
+            {product.name}
+          </h3>
+        </Link>
 
         <div className="grid grid-cols-3 gap-3">
           {product.specs.map((spec) => (
@@ -74,14 +78,17 @@ function ProductCard({ product }: { product: Product }) {
 
         <div className="flex items-center gap-3 mt-2">
           <Link
-            href="/contact"
+            href={`/contact?equipment=${encodeURIComponent(product.slug)}`}
             className="flex-1 inline-flex items-center justify-center bg-primary text-primary-foreground py-2.5 rounded-sm text-sm font-semibold hover:opacity-90 transition-opacity"
           >
             Get Quote
           </Link>
-          <button className="inline-flex items-center justify-center border border-border text-foreground py-2.5 px-4 rounded-sm text-sm font-semibold hover:bg-secondary transition-colors">
+          <Link
+            href={`/products/${product.slug}`}
+            className="inline-flex items-center justify-center border border-border text-foreground py-2.5 px-4 rounded-sm text-sm font-semibold hover:bg-secondary transition-colors"
+          >
             View Specs
-          </button>
+          </Link>
         </div>
       </div>
     </div>

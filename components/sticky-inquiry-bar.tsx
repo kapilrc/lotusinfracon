@@ -2,9 +2,11 @@
 
 import { useState } from "react"
 import { X, MessageSquare, Send } from "lucide-react"
+import { IndiaPhoneInput } from "@/components/india-phone-input"
 
 export function StickyInquiryBar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [phone, setPhone] = useState("")
   const [submitted, setSubmitted] = useState(false)
 
   return (
@@ -66,12 +68,15 @@ export function StickyInquiryBar() {
                 required
                 className="w-full bg-input border border-border rounded-sm px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary"
               />
-              <input
-                type="tel"
-                placeholder="Phone Number"
+
+              <IndiaPhoneInput
+                value={phone}
+                onChange={setPhone}
                 required
-                className="w-full bg-input border border-border rounded-sm px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary"
+                placeholder="98765 43210"
+                className="py-2.5 text-sm"
               />
+
               <select
                 required
                 className="w-full bg-input border border-border rounded-sm px-3 py-2.5 text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-primary"

@@ -8,7 +8,7 @@ export default function ProductsPage() {
   return (
     <main>
       <Navbar />
-      <section className="pt-28 pb-24 bg-background">
+      <section className="pt-24 pb-24 bg-background">
         <div className="mx-auto max-w-7xl px-6">
           <div className="flex flex-col gap-4 mb-12">
             <div className="flex items-center gap-3">

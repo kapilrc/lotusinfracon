@@ -17,12 +17,12 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-32 pb-20 w-full">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-24 pb-20 w-full">
         <div className="max-w-3xl flex flex-col gap-8">
           <div className="flex items-center gap-3">
             <div className="h-px w-12 bg-primary" />
             <span className="text-primary text-sm font-semibold tracking-widest uppercase">
-              Since 2005
+              Since 2010 • Swargate, Pune
             </span>
           </div>
 
@@ -32,9 +32,8 @@ export function HeroSection() {
           </h1>
 
           <p className="text-muted-foreground text-lg md:text-xl leading-relaxed max-w-2xl">
-            Premium concrete pumps, boom pumps, scaffolding systems, and
-            industrial pipe rentals trusted by Tier-1 contractors across the
-            nation.
+            Premium Putzmeister concrete pumps, truck-mounted boom pumps, cuplock scaffolding systems, and
+            industrial pipe rentals trusted by Tier-1 contractors across Maharashtra and India.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
@@ -61,7 +60,7 @@ export function HeroSection() {
               </span>
             </div>
             <div className="flex flex-col">
-              <span className="text-3xl md:text-4xl font-bold text-primary">20+</span>
+              <span className="text-3xl md:text-4xl font-bold text-primary">15+</span>
               <span className="text-muted-foreground text-xs mt-1 uppercase tracking-wide">
                 Years Experience
               </span>
