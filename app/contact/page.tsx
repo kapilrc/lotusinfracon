@@ -21,7 +21,7 @@ const contactInfo = [
   {
     icon: MessageCircle,
     title: "WhatsApp Chat",
-    detail: "+91 80717 92221",
+    detail: "+91 90110 27909",
     sub: "Instant reply for site requirements",
     href: CONTACT.whatsappHref,
   },

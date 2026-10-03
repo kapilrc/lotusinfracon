@@ -61,20 +61,24 @@ export function TrustSection() {
           {projects.map((project) => (
             <div
               key={project.name}
-              className="relative h-64 md:h-80 rounded-sm overflow-hidden group"
+              className="relative h-72 md:h-96 rounded-sm overflow-hidden group border border-border/50 shadow-lg"
             >
               <Image
                 src={project.image}
                 alt={project.name}
                 fill
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
               />
-              <div className="absolute inset-0 bg-background/00" />
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <span className="text-primary text-xs font-semibold tracking-widest uppercase">
+              {/* Multi-stage dark gradient scrim for maximum contrast & legibility */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 via-45% to-transparent" />
+              <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-sm pointer-events-none" />
+
+              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 flex flex-col items-start gap-2.5">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold tracking-widest uppercase bg-primary/25 text-amber-400 border border-amber-400/30 backdrop-blur-md shadow-sm">
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
                   {project.type}
                 </span>
-                <h3 className="text-foreground text-xl font-bold mt-1">
+                <h3 className="text-white text-xl md:text-2xl font-bold tracking-tight drop-shadow-sm group-hover:text-amber-100 transition-colors">
                   {project.name}
                 </h3>
               </div>
