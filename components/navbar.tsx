@@ -144,7 +144,7 @@ export function Navbar() {
                 className="flex items-center gap-2 text-sm text-emerald-400 font-semibold"
               >
                 <MessageCircle className="h-4 w-4" />
-                <span>WhatsApp: +91 80717 92221</span>
+                <span>{CONTACT.phone} (WhatsApp)</span>
               </a>
               <Link
                 href="/contact"

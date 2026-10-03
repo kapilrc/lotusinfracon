@@ -124,13 +124,29 @@ export function Footer() {
                   <p className="text-xs">{CONTACT.designation}</p>
                 </div>
               </div>
-              <a
-                href={CONTACT.phoneHref}
-                className="flex items-center gap-2 text-muted-foreground text-sm hover:text-primary transition-colors"
-              >
-                <Phone className="h-4 w-4 shrink-0 text-primary" />
-                <span>{CONTACT.phone}</span>
-              </a>
+              <div className="flex items-start gap-2 text-muted-foreground text-sm">
+                <Phone className="h-4 w-4 shrink-0 mt-0.5 text-primary" />
+                <div className="flex flex-col">
+                  <a
+                    href={CONTACT.phoneHref}
+                    className="hover:text-primary transition-colors"
+                  >
+                    {CONTACT.phone}
+                  </a>
+                  <a
+                    href="tel:+919881724909"
+                    className="hover:text-primary transition-colors"
+                  >
+                    09881724909
+                  </a>
+                  <a
+                    href="tel:+919011045909"
+                    className="hover:text-primary transition-colors"
+                  >
+                    09011045909
+                  </a>
+                </div>
+              </div>
               <a
                 href={`https://wa.me/${CONTACT.whatsappNumber}`}
                 target="_blank"
@@ -138,7 +154,7 @@ export function Footer() {
                 className="flex items-center gap-2 text-emerald-500 hover:text-emerald-400 text-sm transition-colors"
               >
                 <MessageCircle className="h-4 w-4 shrink-0" />
-                <span>+91 80717 92221 (WhatsApp)</span>
+                <span>{CONTACT.phone} (WhatsApp)</span>
               </a>
               <div className="flex items-start gap-2 text-muted-foreground text-sm">
                 <MapPin className="h-4 w-4 shrink-0 mt-0.5 text-primary" />

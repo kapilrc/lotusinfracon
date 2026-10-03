@@ -8,6 +8,7 @@ import { Phone, Mail, MapPin, Clock, Send, CheckCircle2, MessageCircle, ShieldCh
 import { CONTACT, SITE } from "@/lib/constants"
 import { products } from "@/lib/products"
 import { IndiaPhoneInput } from "@/components/india-phone-input"
+import { StickyInquiryBar } from "@/components/sticky-inquiry-bar"
 
 const contactInfo = [
   {
@@ -363,6 +364,7 @@ export default function ContactPage() {
       </section>
 
       <Footer />
+      <StickyInquiryBar />
     </main>
   )
 }
