@@ -25,17 +25,18 @@ The website showcases Lotus Infracon's fleet of construction equipment available
 
 ## Pages
 
-| Route | Description |
-|-------|-------------|
-| `/` | Homepage with hero, product categories, trust indicators, and CTA |
-| `/products` | Full equipment catalog with filtering |
-| `/company` | Company history, mission, and values |
-| `/contact` | Contact form and office details |
+| Route       | Description                                                       |
+| ----------- | ----------------------------------------------------------------- |
+| `/`         | Homepage with hero, product categories, trust indicators, and CTA |
+| `/products` | Full equipment catalog with filtering                             |
+| `/company`  | Company history, mission, and values                              |
+| `/contact`  | Contact form and office details                                   |
 
 ## Contact
 
 **Mr Mahavir S. Darda** — Marketing Head
-- Phone: 08071792221
+
+- Phone: 09011027909
 - Office: No. 303, 3rd Floor, Ackriti Chambers, Pune Satara Road, Swargate, Pune-411037, Maharashtra, India
 
 ## License
