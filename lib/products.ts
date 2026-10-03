@@ -41,7 +41,7 @@ export const products: Product[] = [
     name: "Putzmeister BSA 1403 Concrete Pump",
     category: "concrete-pumps",
     categoryLabel: "Concrete Pumps",
-    image: "/images/concrete-pump.jpg",
+    image: "/images/products/putzmeister-1403.jpg",
     specs: [
       { label: "Output", value: "130 m³/h" },
       { label: "Pressure", value: "85 bar" },
@@ -80,7 +80,7 @@ export const products: Product[] = [
     name: "Putzmeister BSA 1405 Concrete Pump",
     category: "concrete-pumps",
     categoryLabel: "Concrete Pumps",
-    image: "/images/concrete-pump.jpg",
+    image: "/images/products/putzmeister-1405.jpg",
     specs: [
       { label: "Output", value: "145 m³/h" },
       { label: "Pressure", value: "95 bar" },
@@ -116,7 +116,7 @@ export const products: Product[] = [
     name: "Putzmeister BSA 1407 Concrete Pump",
     category: "concrete-pumps",
     categoryLabel: "Concrete Pumps",
-    image: "/images/concrete-pump.jpg",
+    image: "/images/products/putzmeister-1407.jpg",
     specs: [
       { label: "Output", value: "160 m³/h" },
       { label: "Pressure", value: "108 bar" },
@@ -152,7 +152,7 @@ export const products: Product[] = [
     name: "Stationary Concrete Pump Rental Services",
     category: "concrete-pumps",
     categoryLabel: "Concrete Pumps",
-    image: "/images/concrete-pump.jpg",
+    image: "/images/products/stationary-concrete-pump.jpg",
     specs: [
       { label: "Capacity", value: "50-160 m³/h" },
       { label: "Pressure", value: "Up to 110 bar" },
@@ -186,7 +186,7 @@ export const products: Product[] = [
     name: "Truck Mounted Concrete Pump Rental Services",
     category: "concrete-pumps",
     categoryLabel: "Concrete Pumps",
-    image: "/images/hero-boom-pump.jpg",
+    image: "/images/products/truck-mounted-concrete-pump.jpg",
     specs: [
       { label: "Mobility", value: "Truck Chassis" },
       { label: "Output", value: "120-160 m³/h" },
@@ -220,7 +220,7 @@ export const products: Product[] = [
     name: "Concrete Pump Hire Rental Services",
     category: "concrete-pumps",
     categoryLabel: "Concrete Pumps",
-    image: "/images/concrete-pump.jpg",
+    image: "/images/products/concrete-pump-hire-services.jpg",
     specs: [
       { label: "Rental Model", value: "Dry / Wet Hire" },
       { label: "Duration", value: "Monthly / Annual" },
@@ -255,7 +255,7 @@ export const products: Product[] = [
     name: "36 Meter Boom Pump Rental Services",
     category: "construction-equipment",
     categoryLabel: "Boom Pumps & Placing",
-    image: "/images/hero-boom-pump.jpg",
+    image: "/images/products/36-meter-boom-pump.jpg",
     specs: [
       { label: "Vertical Reach", value: "36 Meters" },
       { label: "Horizontal Reach", value: "31.8 Meters" },
@@ -293,7 +293,7 @@ export const products: Product[] = [
     name: "42 Meter Boom Pump Rental Services",
     category: "construction-equipment",
     categoryLabel: "Boom Pumps & Placing",
-    image: "/images/hero-boom-pump.jpg",
+    image: "/images/products/42-meter-boom-pump.jpg",
     specs: [
       { label: "Vertical Reach", value: "42 Meters" },
       { label: "Horizontal Reach", value: "37.5 Meters" },
@@ -329,7 +329,7 @@ export const products: Product[] = [
     name: "Concrete Boom Pump Rental Services",
     category: "construction-equipment",
     categoryLabel: "Boom Pumps & Placing",
-    image: "/images/hero-boom-pump.jpg",
+    image: "/images/products/concrete-boom-pump.jpg",
     specs: [
       { label: "Reach Range", value: "24m to 42m" },
       { label: "Output", value: "120-180 m³/h" },
@@ -362,7 +362,7 @@ export const products: Product[] = [
     name: "Boom Placer Rental Services",
     category: "construction-equipment",
     categoryLabel: "Boom Pumps & Placing",
-    image: "/images/hero-boom-pump.jpg",
+    image: "/images/products/boom-placer-rental.jpg",
     specs: [
       { label: "Type", value: "Hydraulic Placing Boom" },
       { label: "Reach", value: "28 - 36 Meters" },
@@ -397,7 +397,7 @@ export const products: Product[] = [
     name: "Cuplock Scaffolding System Rental Services",
     category: "scaffolding",
     categoryLabel: "Scaffolding Systems",
-    image: "/images/scaffolding.jpg",
+    image: "/images/products/cuplock-scaffolding-system.png",
     specs: [
       { label: "Material", value: "High-Yield Mild Steel" },
       { label: "Finish", value: "Hot-Dip Galvanized / Painted" },
@@ -432,7 +432,7 @@ export const products: Product[] = [
     name: "Standard Cuplock Rental Services (Verticals)",
     category: "scaffolding",
     categoryLabel: "Scaffolding Systems",
-    image: "/images/scaffolding.jpg",
+    image: "/images/products/standard-cuplock-rental.jpg",
     specs: [
       { label: "Lengths", value: "1.0m to 3.0m" },
       { label: "OD", value: "48.3 mm" },
@@ -465,7 +465,7 @@ export const products: Product[] = [
     name: "Horizontal Cuplock System Rental Services (Ledgers)",
     category: "scaffolding",
     categoryLabel: "Scaffolding Systems",
-    image: "/images/scaffolding.jpg",
+    image: "/images/products/horizontal-cuplock-system.jpg",
     specs: [
       { label: "Sizes", value: "0.6m to 2.5m" },
       { label: "Blade Ends", value: "Forged Blade Terminals" },
@@ -498,7 +498,7 @@ export const products: Product[] = [
     name: "H-Frame Scaffolding Rental Services",
     category: "scaffolding",
     categoryLabel: "Scaffolding Systems",
-    image: "/images/scaffolding.jpg",
+    image: "/images/products/h-frame-scaffolding-system.jpg",
     specs: [
       { label: "Height", value: "2.0m / 1.5m" },
       { label: "Width", value: "1.2m / 1.0m" },
@@ -532,7 +532,7 @@ export const products: Product[] = [
     name: "Scaffolding Props Jack & Adjustable Spans Rental",
     category: "scaffolding",
     categoryLabel: "Scaffolding Systems",
-    image: "/images/scaffolding.jpg",
+    image: "/images/products/scaffolding-props-jack.jpg",
     specs: [
       { label: "Prop Sizes", value: "2m to 4.5m" },
       { label: "Span Sizes", value: "2.4m to 4.2m" },
@@ -566,7 +566,7 @@ export const products: Product[] = [
     name: "Adjustable Base Jacks & Stirrup U-Head Jacks",
     category: "scaffolding",
     categoryLabel: "Scaffolding Systems",
-    image: "/images/scaffolding.jpg",
+    image: "/images/products/adjustable-base-jacks.jpg",
     specs: [
       { label: "Length", value: "350mm to 650mm" },
       { label: "Stem OD", value: "34mm / 38mm" },
@@ -600,7 +600,7 @@ export const products: Product[] = [
     name: "Scaffolding Couplers, Sleeve Clamps & Swivel Couplers",
     category: "scaffolding",
     categoryLabel: "Scaffolding Systems",
-    image: "/images/scaffolding.jpg",
+    image: "/images/products/scaffolding-couplers-clamps.jpg",
     specs: [
       { label: "Types", value: "Right Angle / Swivel / Sleeve" },
       { label: "Material", value: "Drop Forged Mild Steel" },
@@ -633,7 +633,7 @@ export const products: Product[] = [
     name: "Steel Walkway Planks & Centering Shuttering Plates",
     category: "scaffolding",
     categoryLabel: "Scaffolding Systems",
-    image: "/images/scaffolding.jpg",
+    image: "/images/products/steel-walkway-planks-centering-plates.jpg",
     specs: [
       { label: "Planks", value: "2.0m / 2.5m Perforated Steel" },
       { label: "Plates", value: "900 x 600 mm Shuttering" },
@@ -668,7 +668,7 @@ export const products: Product[] = [
     name: "MS Pipes Rental Services (All Diameters & Lengths)",
     category: "pipes",
     categoryLabel: "Pipes Rental",
-    image: "/images/pipes.jpg",
+    image: "/images/products/ms-pipes-rental.jpg",
     specs: [
       { label: "Diameter", value: "100 mm to 600 mm" },
       { label: "Length", value: "6m & 12m Standard" },
