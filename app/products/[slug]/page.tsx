@@ -165,7 +165,7 @@ export default async function ProductDetailPage({ params }: Props) {
               </div>
 
               {/* Quick Specs badges */}
-              <div className="grid grid-cols-3 gap-3 p-4 rounded-sm border border-border bg-card">
+              {/* <div className="grid grid-cols-3 gap-3 p-4 rounded-sm border border-border bg-card">
                 {product.specs.map((spec) => (
                   <div key={spec.label} className="flex flex-col">
                     <span className="text-xs text-muted-foreground uppercase tracking-wide">
