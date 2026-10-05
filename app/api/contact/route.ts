@@ -14,6 +14,7 @@ interface ContactRequestBody {
   duration?: string
   details?: string
   honeypot?: string
+  phoneVerified?: boolean
 }
 
 export async function POST(req: Request) {
@@ -30,6 +31,7 @@ export async function POST(req: Request) {
       duration = "",
       details = "",
       honeypot = "",
+      phoneVerified = false,
     } = body
 
     // 1. Anti-spam honeypot check (if filled by bot, silently return success)
@@ -158,7 +160,14 @@ export async function POST(req: Request) {
               </tr>
               <tr>
                 <td class="label">Mobile Number</td>
-                <td class="value"><a href="tel:${phone}" style="color: #006061; text-decoration: underline;">${phone}</a></td>
+                <td class="value">
+                  <a href="tel:${phone}" style="color: #006061; text-decoration: underline; font-weight: 700;">${phone}</a>
+                  ${
+                    phoneVerified
+                      ? '<span style="background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; margin-left: 8px;">✅ SMS Verified</span>'
+                      : '<span style="background: #fffbeb; color: #b45309; border: 1px solid #fde68a; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; margin-left: 8px;">Unverified Mobile</span>'
+                  }
+                </td>
               </tr>
               ${
                 company
@@ -246,7 +255,7 @@ Sent from lotusinfracon.in inquiry portal
       from: `"Lotus Infracon Website" <${smtpUser}>`,
       to: receiverEmail,
       replyTo: email && email.includes("@") ? email : undefined,
-      subject: `🚨 New Equipment Quote Inquiry: ${machineTitle} (${name})`,
+      subject: `${phoneVerified ? "✅ [VERIFIED LEAD] " : "🚨 "}New Equipment Quote: ${machineTitle} (${name})`,
       text: textEmail,
       html: htmlEmail,
     })

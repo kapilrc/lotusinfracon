@@ -20,6 +20,7 @@ import { CONTACT, SITE } from "@/lib/constants"
 import { products } from "@/lib/products"
 import { IndiaPhoneInput } from "@/components/india-phone-input"
 import { StickyInquiryBar } from "@/components/sticky-inquiry-bar"
+import { PhoneOtpDialog } from "@/components/phone-otp-dialog"
 
 const contactInfo = [
   {
@@ -77,6 +78,8 @@ function ContactFormInner() {
   const [submitting, setSubmitting] = useState(false)
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
   const [submitted, setSubmitted] = useState(false)
+  const [phoneVerified, setPhoneVerified] = useState(false)
+  const [otpDialogOpen, setOtpDialogOpen] = useState(false)
   const [submittedData, setSubmittedData] = useState<{
     name: string
     phone: string
@@ -97,26 +100,9 @@ function ContactFormInner() {
 
   const matchedProduct = products.find((p) => p.slug === selectedEquipment)
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setErrorMessage(null)
-
-    if (!name.trim()) {
-      setErrorMessage("Please provide your contact name.")
-      return
-    }
-
-    if (!phone.trim()) {
-      setErrorMessage("Please enter a valid mobile number so our dispatch team can contact you.")
-      return
-    }
-
-    if (!selectedEquipment) {
-      setErrorMessage("Please choose the equipment model you need.")
-      return
-    }
-
+  const submitInquiry = async (verified: boolean = false) => {
     setSubmitting(true)
+    setErrorMessage(null)
 
     const equipmentDisplayName =
       matchedProduct?.name ||
@@ -143,6 +129,7 @@ function ContactFormInner() {
           // duration, // Reserved for future use
           details: details.trim(),
           honeypot,
+          phoneVerified: verified,
         }),
       })
 
@@ -173,6 +160,35 @@ function ContactFormInner() {
     } finally {
       setSubmitting(false)
     }
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setErrorMessage(null)
+
+    if (!name.trim()) {
+      setErrorMessage("Please provide your contact name.")
+      return
+    }
+
+    const cleanDigits = phone.replace(/[^0-9]/g, "").slice(-10)
+    if (cleanDigits.length !== 10) {
+      setErrorMessage("Please enter a valid 10-digit mobile number so our dispatch team can contact you.")
+      return
+    }
+
+    if (!selectedEquipment) {
+      setErrorMessage("Please choose the equipment model you need.")
+      return
+    }
+
+    // Mobile phone number OTP verification is mandatory
+    if (!phoneVerified) {
+      setOtpDialogOpen(true)
+      return
+    }
+
+    await submitInquiry(true)
   }
 
   if (submitted) {
@@ -292,12 +308,23 @@ function ContactFormInner() {
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label className="text-foreground text-sm font-medium">
-            Mobile Number <span className="text-primary">*</span>
-          </label>
+          <div className="flex items-center justify-between">
+            <label className="text-foreground text-sm font-medium">
+              Mobile Number <span className="text-primary">*</span>
+            </label>
+            {phoneVerified && (
+              <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-sm">
+                <CheckCircle2 className="h-3 w-3" />
+                Verified
+              </span>
+            )}
+          </div>
           <IndiaPhoneInput
             value={phone}
-            onChange={setPhone}
+            onChange={(val) => {
+              setPhone(val)
+              if (phoneVerified) setPhoneVerified(false)
+            }}
             required
             placeholder="98765 43210"
           />
@@ -513,6 +540,18 @@ function ContactFormInner() {
       <p className="text-[11px] text-muted-foreground text-center">
         ⚡ Inquiries are routed directly to <strong className="text-foreground">info@lotusinfracon.in</strong>. Technical commercial quote provided within 2 hours.
       </p>
+
+      {/* Mobile Number SMS OTP Verification Dialog */}
+      <PhoneOtpDialog
+        open={otpDialogOpen}
+        onOpenChange={setOtpDialogOpen}
+        phone={phone}
+        onChangePhone={() => setOtpDialogOpen(false)}
+        onVerified={async () => {
+          setPhoneVerified(true)
+          await submitInquiry(true)
+        }}
+      />
     </form>
   )
 }
