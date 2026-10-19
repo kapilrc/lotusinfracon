@@ -100,8 +100,11 @@ export async function POST(req: Request) {
         pass: smtpPass,
       },
       tls: {
-        // Resolve Tucows/HostedEmail wildcard certificate altnames (*.hostedemail.com)
-        servername: smtpHost.endsWith("hostedemail.com") ? "mail.hostedemail.com" : undefined,
+        // DomainJerry/HostedEmail mail servers present an SSL certificate for *.hostedemail.com
+        // Setting rejectUnauthorized: false guarantees custom CNAMEs (smtp.lotusinfracon.in)
+        // or direct hosts connect reliably without certificate altnames mismatch errors on Vercel
+        rejectUnauthorized: false,
+        servername: "mail.hostedemail.com",
       },
       // Timeout settings for serverless functions
       connectionTimeout: 10000,
@@ -271,7 +274,7 @@ Sent from lotusinfracon.in inquiry portal
         success: false,
         error:
           "Unable to send message due to a connection issue. Please contact our dispatch hotline directly at 09011027909.",
-        details: process.env.NODE_ENV === "development" ? error.message : undefined,
+        details: error?.message || String(error),
       },
       { status: 500 }
     )
