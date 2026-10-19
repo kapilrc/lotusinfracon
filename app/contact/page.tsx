@@ -141,7 +141,10 @@ function ContactFormInner() {
       }
 
       if (!response.ok || !result?.success) {
-        throw new Error(result?.error || "Failed to submit inquiry. Please try calling directly.")
+        const errorMsg = result?.details
+          ? `${result.error} [${result.details}]`
+          : (result?.error || "Failed to submit inquiry. Please try calling directly.")
+        throw new Error(errorMsg)
       }
 
       setSubmittedData({
