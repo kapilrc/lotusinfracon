@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import type { Metadata } from "next"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { StickyInquiryBar } from "@/components/sticky-inquiry-bar"
@@ -16,6 +17,29 @@ import {
   CheckCircle2,
 } from "lucide-react"
 import { SITE, CONTACT } from "@/lib/constants"
+
+export const metadata: Metadata = {
+  title: "About Lotus Infracon | Construction Equipment Leaders in Pune, Maharashtra",
+  description:
+    "Founded in 2010 in Swargate, Pune, Lotus Infracon is a premier heavy construction machinery rental partner serving Tier-1 contractors across Pune and Maharashtra with Putzmeister pumps and certified fleet operations.",
+  keywords: [
+    "about lotus infracon pune",
+    "construction equipment company pune",
+    "concrete pump rental suppliers pune",
+    "deepak darda lotus infracon",
+    "mahavir darda pune",
+    "swargate equipment yard pune",
+  ],
+  alternates: {
+    canonical: "/company",
+  },
+  openGraph: {
+    title: "About Lotus Infracon | Equipment Rental Leaders Pune",
+    description:
+      "Since 2010, Lotus Infracon has powered infrastructure across Pune & Maharashtra with concrete pumps, boom placers, and scaffolding.",
+    url: "/company",
+  },
+}
 
 const timeline = [
   {

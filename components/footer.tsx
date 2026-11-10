@@ -103,10 +103,10 @@ export function Footer() {
                 Request Quotation
               </Link>
               <Link
-                href="/sitemap"
+                href="/site-directory"
                 className="text-muted-foreground text-sm hover:text-primary transition-colors"
               >
-                Equipment Sitemap
+                Equipment Directory
               </Link>
             </nav>
           </div>
@@ -169,8 +169,8 @@ export function Footer() {
             © 2010 - 2026 Lotus Infracon. All rights reserved. GSTIN: {SITE.gstin}.
           </p>
           <div className="flex items-center gap-4 text-xs text-muted-foreground">
-            <Link href="/sitemap" className="hover:text-primary transition-colors">
-              Sitemap
+            <Link href="/site-directory" className="hover:text-primary transition-colors">
+              Directory
             </Link>
             <span>•</span>
             <Link href="/company" className="hover:text-primary transition-colors">

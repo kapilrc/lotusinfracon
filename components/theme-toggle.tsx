@@ -1,16 +1,19 @@
 "use client"
 
 import { useTheme } from "next-themes"
-import { useEffect, useState } from "react"
+import { useSyncExternalStore } from "react"
 import { Moon, Sun } from "lucide-react"
 import { cn } from "@/lib/utils"
 
+const emptySubscribe = () => () => {}
+
 export function ThemeToggle({ className }: { className?: string }) {
   const { theme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
-
-  // Avoid hydration mismatch
-  useEffect(() => setMounted(true), [])
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  )
 
   if (!mounted) {
     return (
@@ -30,10 +33,11 @@ export function ThemeToggle({ className }: { className?: string }) {
       aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
     >
       {theme === "dark" ? (
-        <Sun className="h-4 w-4" />
+        <Sun className="h-4 w-4 text-amber-400" />
       ) : (
-        <Moon className="h-4 w-4" />
+        <Moon className="h-4 w-4 text-white" />
       )}
+      <span className="sr-only">Toggle theme</span>
     </button>
   )
 }

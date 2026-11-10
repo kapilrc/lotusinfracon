@@ -8,6 +8,11 @@ import { StickyInquiryBar } from "@/components/sticky-inquiry-bar"
 import { products, getProductBySlug } from "@/lib/products"
 import { CONTACT, SITE } from "@/lib/constants"
 import {
+  generateProductSchema,
+  generateBreadcrumbSchema,
+  SITE_URL,
+} from "@/lib/seo"
+import {
   Phone,
   MessageCircle,
   FileDown,
@@ -39,9 +44,43 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }
   }
 
+  const title = `${product.name} Rental in Pune, Maharashtra | Lotus Infracon`
+  const description = `${product.description.slice(
+    0,
+    155
+  )} Immediate hire from Lotus Infracon, Swargate Pune. Call ${CONTACT.phone}.`
+
   return {
-    title: `${product.name} Rental in Pune, Maharashtra | Lotus Infracon`,
-    description: `${product.description.slice(0, 160)} Best rental rates from Lotus Infracon, Swargate Pune. Call ${CONTACT.phone}.`,
+    title,
+    description,
+    keywords: [
+      `${product.name.toLowerCase()} rental pune`,
+      `${product.name.toLowerCase()} on hire pune`,
+      `${product.categoryLabel.toLowerCase()} rental pune`,
+      "construction equipment rental pune",
+      "lotus infracon pune",
+    ],
+    alternates: {
+      canonical: `/products/${product.slug}`,
+    },
+    openGraph: {
+      title,
+      description,
+      url: `${SITE_URL}/products/${product.slug}`,
+      type: "website",
+      images: [
+        {
+          url: product.image,
+          alt: `${product.name} - Lotus Infracon Pune`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [product.image],
+    },
   }
 }
 
@@ -53,12 +92,37 @@ export default async function ProductDetailPage({ params }: Props) {
     notFound()
   }
 
+  const productSchema = generateProductSchema(product)
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Equipment Fleet", url: "/products" },
+    {
+      name: product.categoryLabel,
+      url: `/products?category=${product.category}`,
+    },
+    { name: product.name, url: `/products/${product.slug}` },
+  ])
+
   const relatedProducts = products
     .filter((p) => p.category === product.category && p.slug !== product.slug)
     .slice(0, 3)
 
   return (
     <main className="min-h-screen bg-background text-foreground">
+      {/* Product & Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(productSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
+
       <Navbar />
 
       {/* Breadcrumbs */}

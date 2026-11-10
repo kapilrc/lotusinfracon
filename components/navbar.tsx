@@ -14,7 +14,7 @@ const navLinks = [
   { href: "/products", label: "Equipment Fleet" },
   { href: "/company", label: "Company Profile" },
   { href: "/contact", label: "Contact Us" },
-  { href: "/sitemap", label: "Sitemap" },
+  { href: "/site-directory", label: "Directory" },
 ]
 
 export function Navbar() {

@@ -22,18 +22,18 @@ export function HeroSection() {
           <div className="flex items-center gap-3">
             <div className="h-px w-12 bg-primary" />
             <span className="text-primary text-sm font-semibold tracking-widest uppercase">
-              Since 2010 • Swargate, Pune
+              Pune, Maharashtra • Since 2010 • Swargate Depot
             </span>
           </div>
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight text-balance">
-            Powering India&apos;s Infrastructure with{" "}
-            <span className="text-primary">Precision</span> Rental Solutions
+            Construction Equipment &amp; Concrete Pump Rental in{" "}
+            <span className="text-primary">Pune</span>
           </h1>
 
           <p className="text-muted-foreground text-lg md:text-xl leading-relaxed max-w-2xl">
-            Premium Putzmeister concrete pumps, truck-mounted boom pumps, cuplock scaffolding systems, and
-            industrial pipe rentals trusted by Tier-1 contractors across Maharashtra and India.
+            Putzmeister stationary concrete pumps, 36m &amp; 42m boom pumps, cuplock scaffolding systems, and
+            industrial pipe rentals trusted by Tier-1 contractors across Pune, PCMC &amp; Maharashtra.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">

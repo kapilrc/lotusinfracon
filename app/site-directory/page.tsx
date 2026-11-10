@@ -8,9 +8,12 @@ import { SITE, CONTACT } from "@/lib/constants"
 import { ArrowRight, ChevronRight, FileText } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Equipment Sitemap & Directory | Lotus Infracon",
+  title: "Equipment & Site Directory | Lotus Infracon Pune",
   description:
     "Complete directory of construction equipment rental services, concrete pumps, boom placers, scaffolding systems, and pipes available in Pune and Maharashtra.",
+  alternates: {
+    canonical: "/site-directory",
+  },
 }
 
 export default function SitemapPage() {
