@@ -142,18 +142,23 @@ export function PhoneOtpDialog({
     }
   }, [cleanDigits, e164Phone, useRecaptcha])
 
-  // Send OTP when dialog opens
-  React.useEffect(() => {
-    if (open) {
-      const timer = setTimeout(() => {
-        triggerSendOtp()
-      }, 50)
-      return () => clearTimeout(timer)
-    } else {
+  const [prevOpen, setPrevOpen] = React.useState(open)
+  if (prevOpen !== open) {
+    setPrevOpen(open)
+    if (!open) {
       setOtp("")
       setErrorMessage(null)
       setConfirmationResult(null)
     }
+  }
+
+  // Send OTP when dialog opens
+  React.useEffect(() => {
+    if (!open) return
+    const timer = setTimeout(() => {
+      triggerSendOtp()
+    }, 50)
+    return () => clearTimeout(timer)
   }, [open, triggerSendOtp])
 
   // Handle Verify Action
