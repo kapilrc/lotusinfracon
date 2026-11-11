@@ -4,6 +4,10 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { SITE_URL, generateLocalBusinessSchema, generateWebSiteSchema } from "@/lib/seo"
 import "./globals.css"
 
+const googleVerification = (process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "")
+  .replace(/^google-site-verification=/, "")
+  .trim()
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
@@ -78,7 +82,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "",
+    google: googleVerification,
   },
   other: {
     "geo.region": "IN-MH",
